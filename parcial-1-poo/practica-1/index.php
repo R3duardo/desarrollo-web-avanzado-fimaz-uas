@@ -6,7 +6,7 @@ require_once 'Usuario.php';
 $usuario1 = new Usuario("Eduardo Montes de Oca Zatarain", "emozp@hotmail.com");
 
 // Mostrar los valores utilizando los métodos getters
-echo "Nombre del usuario: " . $usuario1->getNombre() . "\n";
-echo "Correo del usuario: " . $usuario1->getCorreo() . "\n";
+echo "Nombre del usuario: " . $usuario1->getNombre() . "<br>";
+echo "Correo del usuario: " . $usuario1->getCorreo() . "<br>";
 
 ?>
