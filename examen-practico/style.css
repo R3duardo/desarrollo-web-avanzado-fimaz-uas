@@ -1,0 +1,223 @@
+/* 
+ * Variables de diseño: 
+ * Esquema de colores moderno, tipografía y espaciado 
+ */
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border-light: #e2e8f0;
+
+    --error-bg: #fef2f2;
+    --error-border: #fca5a5;
+    --error-text: #b91c1c;
+
+    --badge-admin-bg: #dbeafe;
+    --badge-admin-text: #1d4ed8;
+
+    --badge-alumno-bg: #f3f4f6;
+    --badge-alumno-text: #374151;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 2rem;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 900px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* ==========================================
+   Alertas (Excepciones)
+   ========================================== */
+.alert-container {
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.alert-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--error-text);
+}
+
+.alert-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.alert-msg {
+    color: var(--error-text);
+    font-size: 0.95rem;
+}
+
+.alert-icon {
+    font-weight: bold;
+    margin-right: 0.25rem;
+}
+
+/* ==========================================
+   Tabla CSS Grid (Diseño Moderno)
+   ========================================== */
+.grid-table-container {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    overflow: hidden;
+}
+
+/* 
+ * Definición del Grid.
+ * Usamos 4 columnas que se ajustan al contenido, pero con un mínimo y pesos (fr).
+ */
+.grid-table-header,
+.grid-table-row {
+    display: grid;
+    /* Nombre (1.5fr), Correo (2fr), Rol (1fr), Matrícula (1fr) */
+    grid-template-columns: 1.5fr 2fr 1fr 1fr;
+    align-items: center;
+}
+
+.grid-cell {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    overflow-wrap: break-word;
+    /* Para correos largos, sin romper palabras normales a la mitad */
+}
+
+/* Encabezado */
+.grid-table-header {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+/* Filas del cuerpo */
+.grid-table-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-table-row {
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.2s ease;
+}
+
+.grid-table-row:last-child {
+    border-bottom: none;
+}
+
+.grid-table-row:hover {
+    background-color: #f1f5f9;
+}
+
+/* ==========================================
+   Utilidades y Badges
+   ========================================== */
+.text-muted {
+    color: var(--text-secondary);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.badge-admin {
+    background-color: var(--badge-admin-bg);
+    color: var(--badge-admin-text);
+}
+
+.badge-alumno {
+    background-color: var(--badge-alumno-bg);
+    color: var(--badge-alumno-text);
+}
+
+/* Responsividad básica para pantallas pequeñas */
+@media (max-width: 640px) {
+
+    .grid-table-header,
+    .grid-table-row {
+        /* Cambiar a una sola columna en móviles */
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        padding: 1rem;
+    }
+
+    .grid-table-header {
+        display: none;
+        /* Ocultar encabezados tipo columna en móvil */
+    }
+
+    .grid-table-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 1.5rem;
+    }
+
+    .grid-cell {
+        padding: 0.25rem 0;
+        width: 100%;
+    }
+
+    /* Pequeño hack para mostrar etiquetas en móvil usando pseudo-elementos */
+    .grid-cell:nth-child(1)::before {
+        content: "Nombre: ";
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+
+    .grid-cell:nth-child(2)::before {
+        content: "Correo: ";
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+
+    .grid-cell:nth-child(3)::before {
+        content: "Rol: ";
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+
+    .grid-cell:nth-child(4)::before {
+        content: "Matrícula: ";
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+}
