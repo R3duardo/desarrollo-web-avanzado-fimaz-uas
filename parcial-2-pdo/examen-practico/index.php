@@ -110,14 +110,16 @@ $productos = $controller->listar();
 
                         <div class="col-md-2 mb-3">
                             <label class="form-label">Existencia</label>
-                            <input type="number" name="existencia" class="form-control"
-                                value="<?php echo $productoEditar['existencia'] ?? ''; ?>" required>
+                            <input type="number" name="existencia" class="form-control" min="0"
+                                value="<?php echo $productoEditar['existencia'] ?? ''; ?>" required
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
 
                         <div class="col-md-2 mb-3">
                             <label class="form-label">Precio</label>
-                            <input type="number" step="0.01" name="precio" class="form-control"
-                                value="<?php echo $productoEditar['precio'] ?? ''; ?>" required>
+                            <input type="number" step="0.01" name="precio" class="form-control" min="0.01"
+                                value="<?php echo $productoEditar['precio'] ?? ''; ?>" required
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
                         </div>
 
                         <div class="col-md-2 mb-3 d-flex align-items-end">
