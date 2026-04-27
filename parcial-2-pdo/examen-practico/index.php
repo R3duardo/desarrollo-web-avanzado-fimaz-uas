@@ -118,8 +118,7 @@ $productos = $controller->listar();
                         <div class="col-md-2 mb-3">
                             <label class="form-label">Precio</label>
                             <input type="number" step="0.01" name="precio" class="form-control" min="0.01"
-                                value="<?php echo $productoEditar['precio'] ?? ''; ?>" required
-                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
+                                value="<?php echo $productoEditar['precio'] ?? ''; ?>" required>
                         </div>
 
                         <div class="col-md-2 mb-3 d-flex align-items-end">
