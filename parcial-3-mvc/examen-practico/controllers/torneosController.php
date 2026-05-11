@@ -42,7 +42,7 @@
         }
 
         //Método que manda llamar la función delete del modelo.
-        public function deleteTorneo($id){
+        public function delete($id){
             return ($this->model->delete($id) != false) ? header("Location: readAllTorneos.php") : header("Location: readOneTorneo.php?id=".$id);
         }
     }
