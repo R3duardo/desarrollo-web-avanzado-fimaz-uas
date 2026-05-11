@@ -1,4 +1,5 @@
 <?php
+// Eduardo Montes de Oca Zatarain
     require_once("../admin/template/header.php");
     require_once("../../controllers/torneosController.php");
     //Instanciamos controlador para ejecutar la consulta.

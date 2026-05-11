@@ -1,5 +1,5 @@
 <?php
-
+// Eduardo Montes de Oca Zatarain
     require_once("../../controllers/torneosController.php");
     $objTorneosController = new torneosController();
     //Obtener el id desde el botón que mandará eliminar el registro.

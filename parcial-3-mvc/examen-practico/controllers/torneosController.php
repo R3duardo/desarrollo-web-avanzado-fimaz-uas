@@ -1,5 +1,5 @@
 <?php
-
+// Eduardo Montes de Oca Zatarain
     require_once("../../models/torneosModel.php");
 
     class torneosController{
@@ -17,6 +17,11 @@
         //contrario se mantendrá en la pantalla del formulario de captura de datos del torneo.
         public function saveTorneo($nombreTorneo, $organizador, $patrocinadores, $sede,
         $categoria, $premio1, $premio2, $premio3, $otroPremio, $usuario, $contrasena){
+            //Limpiamos el símbolo $ de los premios para que sean valores numéricos válidos.
+            $premio1 = floatval(str_replace('$', '', $premio1));
+            $premio2 = floatval(str_replace('$', '', $premio2));
+            $premio3 = floatval(str_replace('$', '', $premio3));
+            $otroPremio = floatval(str_replace('$', '', $otroPremio));
             //Recordemos que la función insert del modelo, regresa el último id generado.
             $id= $this->model->insert($nombreTorneo, $organizador, $patrocinadores, $sede,
             $categoria, $premio1, $premio2, $premio3, $otroPremio, $usuario, $contrasena);
@@ -36,6 +41,11 @@
         //Método que manda llamar la función update del modelo.
         public function updateTorneo($id, $nombreTorneo, $organizador, $patrocinadores, $sede,
         $categoria, $premio1, $premio2, $premio3, $otroPremio){
+            //Limpiamos el símbolo $ de los premios para que sean valores numéricos válidos.
+            $premio1 = floatval(str_replace('$', '', $premio1));
+            $premio2 = floatval(str_replace('$', '', $premio2));
+            $premio3 = floatval(str_replace('$', '', $premio3));
+            $otroPremio = floatval(str_replace('$', '', $otroPremio));
             return ($this->model->update($id, $nombreTorneo, $organizador, $patrocinadores,
             $sede, $categoria, $premio1, $premio2, $premio3, $otroPremio) !=false ? header
             ("Location: readOneTorneo.php?id=".$id) : header("Location: readAll.php")) ;

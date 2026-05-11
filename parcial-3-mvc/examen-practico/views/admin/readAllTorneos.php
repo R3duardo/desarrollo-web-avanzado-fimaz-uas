@@ -1,4 +1,5 @@
 <?php
+// Eduardo Montes de Oca Zatarain
     require_once("../admin/template/header.php");
     require_once("../../controllers/torneosController.php");
     //Instanciamos controlador para ejecutar la consulta.
@@ -7,9 +8,10 @@
     $rows = $objTorneosController->readTorneos();
 ?>
 
+<div class="mx-auto p-5">
     <div class="card text-center">
         <div class="card-header">
-            LISTADO DE TORNEOS
+            <span class="fa-solid fa-trophy">LISTADO DE TORNEOS</span>
         </div>
         <div class="card-body">
             <table class="table table-hover table-bordered">
@@ -29,13 +31,13 @@
                                 <th><?= $row['nombreTorneo'] ?></th>
                                 <th><?= $row['organizador'] ?></th>
                                 <th>
-                                    <a href="readOneTorneo.php?id=<?= $row['id'] ?>" class="btn btn-primary">Consultar</a>
-                                    <a href="updateTorneo.php?id=<?= $row['id'] ?>" class="btn btn-success">Editar</a>
+                                    <a href="readOneTorneo.php?id=<?= $row['id'] ?>" class="btn btn-primary"><span class="fa-solid fa-list-check"></span></a>
+                                    <a href="updateTorneo.php?id=<?= $row['id'] ?>" class="btn btn-success"><span class="fa-solid fa-edit"></span></a>
                                     <!--Eliminar registro utilizando Ventana Modal.-->
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger"
                                     data-bs-toggle="modal" data-bs-target="#idModal<?= $row['id'] ?>">
-                                    Eliminar
+                                    <span class="fa-solid fa-trash"></span>
                                     </button>
 
                                     <!-- Modal -->
@@ -70,12 +72,15 @@
                                 No hay torneos aún.
                             </td>
                         </tr>
-                    <?php endif: ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
     </div>
-
+    <div class="mx-auto p-2">
+        <a href="admin.php" class="btn btn-primary">Regresar</a>
+    </div>
+</div>
 <?php
     require_once("../admin/template/footer.php");
 ?>

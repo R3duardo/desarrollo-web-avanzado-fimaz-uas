@@ -1,10 +1,11 @@
 <?php
     require_once("../admin/template/header.php");
+    // Eduardo Montes de Oca Zatarain
 ?>
 
 <div class="card">
     <div class="card-header">
-        CAPTURAR LA INFORMACIÓN DEL TORNEO.
+        <span class="fa-solid fa-trophy">CAPTURAR LA INFORMACIÓN DEL TORNEO</span>
     </div>
     <div class="card-body">
         <form action="torneosInsert.php" method="post">

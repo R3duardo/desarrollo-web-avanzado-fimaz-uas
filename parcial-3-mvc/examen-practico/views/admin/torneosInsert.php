@@ -1,4 +1,5 @@
 <?php
+// Eduardo Montes de Oca Zatarain
     require_once("../../controllers/torneosController.php");
     //Atrapar los valores introducidos por el usuario en el formulario.
     $nombreTorneo = $_POST['txtNombreTorneo'];

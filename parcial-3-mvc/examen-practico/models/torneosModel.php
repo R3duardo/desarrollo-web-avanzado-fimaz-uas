@@ -1,5 +1,5 @@
 <?php
-
+// Eduardo Montes de Oca Zatarain
     require_once("../../config/Database.php");
 
     class torneosModel {
@@ -74,7 +74,7 @@
             $statement = $this->PDO->prepare("UPDATE torneos SET nombreTorneo = :nombreTorneo,
             organizador = :organizador,patrocinadores = :patrocinadores, SEDE = :sede, CATEGORIA
             = :categoria, premio1 = :premio1, premio2 = :premio2, premio3 = :premio3, otroPremio
-            = :otroPremio WHERE id = :id)");
+            = :otroPremio WHERE id = :id");
             //Asociamos los valores colocados como placeholder en el query mediante el
             //bindParam().
             $statement->bindParam(":id", $id);

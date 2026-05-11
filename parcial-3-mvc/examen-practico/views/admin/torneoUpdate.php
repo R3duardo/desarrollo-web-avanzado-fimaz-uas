@@ -1,4 +1,5 @@
 <?php
+// Eduardo Montes de Oca Zatarain
     require_once("../../controllers/torneosController.php");
 
     //Instanciamos nuestro Controlador.

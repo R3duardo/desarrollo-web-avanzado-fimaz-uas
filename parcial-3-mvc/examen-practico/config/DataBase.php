@@ -1,12 +1,14 @@
 <?php
+// Eduardo Montes de Oca Zatarain
+
 //Crear una clase para conexión a base de datos mediante PDO.
 
 class Database{
     //Atributos de la clase Database
     private $host = "localhost";
     private $db = "proyecto";
-    private $user = "demo";
-    private $password = "123";
+    private $user = "root";
+    private $password = "";
 
     public function __construct()
     {
@@ -18,6 +20,7 @@ class Database{
         try {
             $PDO = new PDO("mysql:host=".$this->host.";dbname=".$this->db,$this->user,
             $this->password);
+            return $PDO;
         } catch (PDOException $e) {
             return $e->getMessage();
         }
